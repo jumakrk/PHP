@@ -1,5 +1,21 @@
 <?php
 
+//function addNumbers($num1, $num2) {
+    //return $num1 + $num2;
+//}
+
+// input
+//$num1 = 10;
+//$num2 = 10;
+
+// sum of numbers
+//$sum = addNumbers($num1, $num2);
+
+// result
+//echo "The sum is: $sum";
+
+//<?php
+
 //$deposit = 40000;
 //$withdrawal = 5000;
 //$balance = $deposit - $withdrawal;
@@ -34,18 +50,39 @@
     //echo "username not set";
 //}
 
+//Connection to database using try catch method
+
+// Database connection settings
+$host = 'localhost'; // or your database host
+$dbname = 'phpdb'; // your database name
+$username = 'root'; // your database username
+$password = ''; // your database password
+
+try {
+    // Create a PDO instance
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+    // Set PDO to throw exceptions on error
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    echo "Connected successfully";
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
+
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Sign up</title>
 </head>
-<body>
+<body> -->
     <!-- sign up form -->
-    <form action="processing_signup.php" method="post">
+    <!-- <form action="processing_signup.php" method="post">
     <div>
 
     <div class="username">
@@ -70,4 +107,4 @@
     </div>
     </form>
 </body>
-</html>
+</html> -->
