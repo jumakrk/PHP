@@ -53,23 +53,39 @@
 //Connection to database using try catch method
 
 // Database connection settings
-$host = 'localhost'; // or your database host
-$dbname = 'phpdb'; // your database name
-$username = 'root'; // your database username
-$password = ''; // your database password
+// $host = 'localhost'; // or your database host
+// $dbname = 'phpd'; // your database name
+// $username = 'root'; // your database username
+// $password = ''; // your database password
 
-try {
-    // Create a PDO instance
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+// try {
+//     // Create a PDO instance
+//     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-    // Set PDO to throw exceptions on error
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//     // Set PDO to throw exceptions on error
+//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-    echo "Connected successfully";
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+//     echo "Connected successfully";
+// } catch (PDOException $e) {
+//     die("Connection failed: " . $e->getMessage());
+// }
+
+//connection to server using if else conditional statements
+
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "phpdb";
+
+    //create connection
+    $con = mysqli_connect($host, $username, $password, $dbname);
+
+    if(mysqli_connect_errno()){
+        echo "Failed to connect!";
+        exit();
 }
+echo "Connection sucessfull"
 
 ?>
 
