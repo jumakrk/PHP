@@ -87,18 +87,31 @@
 // }
 // echo "Connection sucessfull using conditional statements if else"
 
+//Index Array
+// $counties = array ("Nairobi", "Mombasa", "Nakuru");
+// echo $counties [1]
+
+//Associative array
+$user_input = array(
+    'username' => "John",
+    'email' => "john@gmail.com",
+    'password' => "1234"
+);
+
+echo $user_input['username'];
+
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Sign up</title>
 </head>
-<body>
+<body> -->
     <!-- sign up form -->
-    <form action="processing_signup.php" method="post">
+    <!-- <form action="processing_signup.php" method="post">
     <div>
 
     <div class="username">
@@ -123,4 +136,4 @@
     </div>
     </form>
 </body>
-</html>
+</html> -->
