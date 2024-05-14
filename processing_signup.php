@@ -8,3 +8,5 @@ echo "<br>";
 echo $_POST ['password'];
 
 //assignment = save the values in the database
+
+?>

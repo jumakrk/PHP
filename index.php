@@ -66,39 +66,39 @@
 //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-//     echo "Connected successfully";
+//     echo "Connected successfully using the try catch method";
 // } catch (PDOException $e) {
-//     die("Connection failed: " . $e->getMessage());
+//     die("Connection failed using the try catch method: " . $e->getMessage());
+//}
+
+//connection to server using if else conditional statement
+
+//     $host = "localhost";
+//     $username = "root";
+//     $password = "";
+//     $dbname = "phpdb";
+
+//     //create connection
+//     $con = mysqli_connect($host, $username, $password, $dbname);
+
+//     if(mysqli_connect_errno()){
+//         echo "Failed to connect using conditional statements if else";
+//         exit();
 // }
-
-//connection to server using if else conditional statements
-
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "phpdb";
-
-    //create connection
-    $con = mysqli_connect($host, $username, $password, $dbname);
-
-    if(mysqli_connect_errno()){
-        echo "Failed to connect!";
-        exit();
-}
-echo "Connection sucessfull"
+// echo "Connection sucessfull using conditional statements if else"
 
 ?>
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Sign up</title>
 </head>
-<body> -->
+<body>
     <!-- sign up form -->
-    <!-- <form action="processing_signup.php" method="post">
+    <form action="processing_signup.php" method="post">
     <div>
 
     <div class="username">
@@ -123,4 +123,4 @@ echo "Connection sucessfull"
     </div>
     </form>
 </body>
-</html> -->
+</html>
