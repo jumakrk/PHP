@@ -13,6 +13,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     echo "Connected successfully using the try catch method"; // Uncomment for debugging //commented to not display if working
+    header('Location: index.php'); //Redirects you to Homepage after login
 } catch (PDOException $e) {
     die("Connection failed using the try catch method: " . $e->getMessage());
 }

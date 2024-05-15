@@ -9,6 +9,9 @@ if(isset($_POST["username"], $_POST["email"], $_POST["password"])){
     $email = $_POST["email"];
     $password = $_POST["password"];
 
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
     // Use prepared statements to prevent SQL injection
     $query = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)"); //prepare is used together with execute in line 18
     $query->bindParam(':username', $username);

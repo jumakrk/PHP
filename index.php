@@ -141,6 +141,6 @@
     </form> -->
 <!-- Navigation -->
     <?php include 'navbar.php'?>
-    <h1>Home Page</h1>
+    <!-- <img src="images/Homepage.jpg" alt=""> -->
 </body>
 </html>
