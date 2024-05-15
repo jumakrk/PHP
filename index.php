@@ -78,7 +78,7 @@
 //     $password = "";
 //     $dbname = "phpdb";
 
-//     //create connection
+//     //create connection using mysqli which can be functional or Object Oriented
 //     $con = mysqli_connect($host, $username, $password, $dbname);
 
 //     if(mysqli_connect_errno()){
@@ -89,27 +89,32 @@
 
 //Index Array
 // $counties = array ("Nairobi", "Mombasa", "Nakuru");
-// echo $counties [1]
+// // echo $counties [1]
+
+// foreach ($counties as $county) {
+//     echo $county;
+// }
 
 //Associative array
-$user_input = array(
-    'username' => "John",
-    'email' => "john@gmail.com",
-    'password' => "1234"
-);
+// $user_input = array(
+//     'username' => "John",
+//     'email' => "john@gmail.com",
+//     'password' => "1234"
+// );
 
-echo $user_input['username'];
+// echo $user_input['username'];
 
 ?>
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>PHP Sign up</title>
 </head>
-<body> -->
+<body>
     <!-- sign up form -->
     <!-- <form action="processing_signup.php" method="post">
     <div>
@@ -134,6 +139,18 @@ echo $user_input['username'];
         </div>
 
     </div>
-    </form>
+    </form> -->
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="contacts.php">Contacts</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">Signup</a></li>
+        </ul>
+    </nav>
 </body>
-</html> -->
+</html>
