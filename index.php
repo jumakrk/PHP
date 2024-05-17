@@ -114,32 +114,6 @@
     <title>Home</title>
 </head>
 <body>
-    <!-- sign up form -->
-    <!-- <form action="processing_signup.php" method="post">
-    <div>
-
-    <div class="username">
-            <label>User Name</label>
-            <input type="text" name="username" placeholder="username">
-        </div>
-
-        <div class="email">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="email">
-        </div>
-
-        <div class="Password">
-            <label>Password</label>
-            <input type="Password" name="password" placeholder="password">
-        </div>
-
-        <div class="btn">
-            <button action="submit">Sign up</button>
-        </div>
-
-    </div>
-    </form> -->
-<!-- Navigation -->
     <?php include 'navbar.php'?>
     <header>
         <h1>HOMEPAGE</h1>

@@ -1,36 +1,48 @@
+<?php
+include 'connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Sign up successful!'); window.location.href = 'login.php';</script>";
+    } else {
+        echo "<script>alert('Error: " . $stmt->error . "'); window.location.href = 'signup.php';</script>";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>SignUp</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <?php include 'navbar.php'?>
-
-    <header>
-            <form action="processform.php" method="post">
-                <h2>Sign up</h2>
-                    <div class="form-group">
-                        <label for="username">User Name</label>
-                        <input type="text" id="username" name="username" require placeholder="Enter your username">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" require placeholder="Enter your email">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" require placeholder="Enter your password">
-                    </div>
-
-                    <div class="btn">
-                        <button type="submit" name="submit">Sign up</button>
-                    </div>
-            </form>
-    </header>
+    <?php include 'navbar.php'; ?>
+    <div class="form-container">
+        <form method="POST" action="signup.php">
+            <h2>Sign Up</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 </body>
 </html>

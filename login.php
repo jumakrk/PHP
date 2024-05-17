@@ -1,5 +1,28 @@
-<?php 
+<?php
+include 'connection.php';
 session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($id, $hashed_password);
+    $stmt->fetch();
+
+    if ($stmt->num_rows > 0 && password_verify($password, $hashed_password)) {
+        $_SESSION['user_id'] = $id;
+        header("Location: dashboard.php");
+    } else {
+        echo "<script>alert('Invalid credentials'); window.location.href = 'login.php';</script>";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -7,54 +30,20 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Login</title>
 </head>
 <body>
-    <?php include 'navbar.php'?>
-    <header>
-            <!-- Sign up form -->
-    <form action="login.php" method="post">
-        <h2>Login</h2>
-        <div class="form-group">
-            <label for="username">User Name</label>
-            <input type="text" id="username" name="username" required placeholder="Enter your username">
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required placeholder="Enter your password">
-        </div>
-
-        <div class="btn">
-            <button name="login"> Log In</button>
-        </div>
-    </form>
-    </header>
-<!-- login page, and good user interface (home, about, services and contacts) -->
+    <?php include 'navbar.php'; ?>
+    <div class="form-container">
+        <form method="POST" action="login.php">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
-
-<?php
-if(isset($_POST['login'])){
-
-    // get user input
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    // connect to the database
-    include 'connection.php';
-
-    // query
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-
-    // execute the query
-    $result = $db_connect->query($sql);
-    if($result->num_rows > 0){
-        $_SESSION['username'] = $username;
-        // echo "<alert>('Logged in sucessfully')</alert>";
-        header('Location: dashboard.php');
-    }else{
-        echo "User does not exit";
-    }
-}
-?>
