@@ -7,6 +7,8 @@
 </head>
 <body>
     <?php include 'navbar.php'?>
-<h1>Services Page</h1>
+    <header>
+        <h1>SERVICES PAGE</h1>
+    </header>
 </body>
 </html>

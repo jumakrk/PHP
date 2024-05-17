@@ -103,7 +103,7 @@
 // );
 
 // echo $user_input['username'];
-
+// session_start();
 ?>
 
 <!DOCTYPE html>
@@ -141,6 +141,8 @@
     </form> -->
 <!-- Navigation -->
     <?php include 'navbar.php'?>
-    <!-- <img src="images/Homepage.jpg" alt=""> -->
+    <header>
+        <h1>HOMEPAGE</h1>
+    </header>
 </body>
 </html>

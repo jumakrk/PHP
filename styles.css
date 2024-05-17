@@ -1,39 +1,69 @@
 *{
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 nav {
-    background-color: rgb(255, 208, 0);
-    padding: 14px 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
-nav li{
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav li {
     display: inline;
 }
 
 nav li a{
-    color: white;
+    color: whitesmoke;
     text-decoration: none;
     padding: 0 28px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
 }
+
+header {
+    background: url(images/Homepage.jpg);
+    width: 100vw;
+    height: 100vh;
+    background-position: bottom;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+header h1 {
+    color: white;
+}
+
+.logo {
+    height: 9vmin;
+    cursor: pointer;
+}
+/* forms */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
+
+
 h2 {
     text-align: center;
 }
@@ -56,7 +86,7 @@ input[type="password"] {
 .btn {
     text-align: center;
 }
-button {
+.btn {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -64,6 +94,13 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-button:hover {
+.btn:hover {
     background-color: #0056b3;
 }
+
+.homepage-image {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+

@@ -19,10 +19,10 @@ if(isset($_POST["username"], $_POST["email"], $_POST["password"])){
     $query->bindParam(':password', $hashed_password); // Insert hashed password
     
     if ($query->execute()) {
-        //echo '<script>alert("Data inserted successfully")</script>';
+        echo '<script>alert("Signed up successfully")</script>';
         header('Location: login.php');
     } else {
-        echo '<script>alert("Failed to insert data")</script>';
+        echo '<script>alert("Failed to sign up")</script>';
         // Debugging: Check for SQL errors
         var_dump($query->errorInfo());
     }
